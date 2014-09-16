@@ -5,20 +5,20 @@ import java.util.LinkedList;
 /**
  * Created by Justin Gertsch on 9/15/14.
  */
-public class Queue<T>
+public class Queue
 {
-    private List<T> list = null;
+    private List<Object> list = null;
 
-    Queue(List<T> imp)
+    Queue(List<Object> imp)
     {
         this.list = imp;
     }
 
-    public void add(T item)
+    public void add(Object item)
     {
         this.list.add(item);
     }
-    public T get()
+    public Object get()
     {
         return this.list.get(0);
     }
@@ -38,7 +38,7 @@ public class Queue<T>
         this.list.clear();
     }
 
-    public void changeImpl(List<T> newImpl)
+    public void changeImpl(List<Object> newImpl)
     {
         newImpl.clear();
         newImpl.addAll(this.list);
@@ -47,7 +47,8 @@ public class Queue<T>
 
     public static void displayAndEmptyQueue(Queue impl)
     {
-        for(int i = 0; i < impl.size(); i++)
+        int j = impl.size();
+        for(int i = 0; i < j; i++)
         {
             System.out.print(impl.get()+" ");
             impl.remove();
@@ -69,20 +70,9 @@ public class Queue<T>
         q.add(4);
         q.add(5);
         displayAndEmptyQueue(q);
-        /*
-        System.out.println(q.size());
-        System.out.println(q.get());
-        q.remove();
-        System.out.println(q.get());
-        q.remove();
-        System.out.println(q.get());
-        q.remove();
-        System.out.println(q.get());
-        q.remove();*/
-        displayAndEmptyQueue(q);
 
         // Do strings
-        /*
+
         Queue q2 = new Queue(new ArrayList());
         q2.add("1");
         q2.add("2");
@@ -91,6 +81,6 @@ public class Queue<T>
         q2.changeImpl(alist2);
         q2.add("4");
         q2.add("5");
-        displayAndEmptyQueue(q2);*/
+        displayAndEmptyQueue(q2);
     }
 }
